@@ -22,7 +22,7 @@ app.use(bulletinRouter)
 app.use(userRouter)
 
 app.use('*',(req,res)=>{
-    res.sendStatus(404).send();
+    res.sendStatus(200).send("Up and Running..");
 })
 
 app.listen(port, () => {
