@@ -2,6 +2,8 @@
 
 Welcome to the Bulletin Analytics API repository! This API is designed to interact with a Mongoose database to fetch and manage bulletin data. Bulletins are pieces of information that can be retrieved, created, updated, and deleted through this API.
 
+Deployed Link :- https://bulletin-analytics-api.onrender.com/
+
 ## Table of Contents
 
 - [Installation](#installation)
