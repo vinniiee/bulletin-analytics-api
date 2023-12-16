@@ -21,7 +21,7 @@ app.use(express.json())
 //     console.log(req);
 //     next();
 // })
-app.use(bulletinRouter)
+app.use("/bulletins",bulletinRouter)
 app.use(userRouter)
 
 app.use('*',(req,res)=>{
