@@ -2,6 +2,7 @@ const express = require('express')
 
 require('dotenv').config()
 require('./db/mongoose')
+const cors = require('cors')
 const userRouter = require('./routers/user')
 const bulletinRouter = require('./routers/bulletin')
 
@@ -12,6 +13,8 @@ if(!process.env.PORT || !process.env.MONGO_URI){
 }
 
 const port = process.env.PORT || 3000
+
+app.use(cors({origin:'*'}))
 
 app.use(express.json())
 // app.use((req,res,next)=>{
