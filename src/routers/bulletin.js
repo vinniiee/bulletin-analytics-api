@@ -57,7 +57,7 @@ router.get("/countries", async (req, res) => {
   }
 });
 
-router.get("/pestle", async (req, res) => {
+router.get("/pestles", async (req, res) => {
   try {
     const results = await Bulletin.distinct("pestle");
     const pestle = results.filter((item) => item);
