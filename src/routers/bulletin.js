@@ -1,6 +1,5 @@
 const express = require("express");
 const Bulletin = require("../models/bulletin");
-const { router } = require("express/lib/application");
 const router = new express.Router();
 
 router.post("/", async (req, res) => {
