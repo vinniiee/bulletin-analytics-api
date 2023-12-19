@@ -25,16 +25,10 @@ router.get("/", async (req, res) => {
 
 router.get("/topics", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("topic");
-    const topics = results.filter((item) => item);
-
-    let response = [];
-    let count;
-    for (let i = 0; i < topics.length; i++) {
-      count = await Bulletin.count({ topic: topics[i] });
-      response.push({ name: topics[i], count });
-    }
-    res.send(response);
+    const results = await Bulletin.find({});
+    const formattedData = getCount("topic",results);
+    
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
@@ -43,9 +37,10 @@ router.get("/topics", async (req, res) => {
 
 router.get("/regions", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("region");
-    const regions = results.filter((item) => item);
-    res.send(regions);
+    const results = await Bulletin.find({});
+    const formattedData = getCount("region",results);
+    
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
@@ -54,9 +49,10 @@ router.get("/regions", async (req, res) => {
 
 router.get("/countries", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("country");
-    const countries = results.filter((item) => item);
-    res.send(countries);
+    const results = await Bulletin.find({});
+    const formattedData = getCount("country",results);
+    
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
@@ -77,9 +73,10 @@ router.get("/pestles", async (req, res) => {
 
 router.get("/sectors", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("sector");
-    const sectors = results.filter((item) => item);
-    res.send(sectors);
+    const results = await Bulletin.find({});
+    const formattedData = getCount("sector",results);
+    
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
@@ -87,9 +84,10 @@ router.get("/sectors", async (req, res) => {
 });
 router.get("/sources", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("source");
-    const sources = results.filter((item) => item);
-    res.send(sources);
+    const results = await Bulletin.find({});
+    const formattedData = getCount("source",results);
+    
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
