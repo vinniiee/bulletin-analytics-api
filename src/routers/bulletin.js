@@ -22,13 +22,27 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 router.get("/topics", async (req, res) => {
   try {
     const results = await Bulletin.distinct("topic");
     const topics = results.filter((item) => item);
 
-    res.send(topics);
+    let response = [];
+    let count;
+    for (let i = 0; i < topics.length; i++) {
+      count = await Bulletin.count({ topic: topics[i] });
+      response.push({ name: topics[i], count });
+    }
+    // console.log(response);
+    //
+    //  topics.forEach(async (topic) => {
+    //   count = await Bulletin.count({ topic: topic });
+
+    //   response.push({ name: topic, count });
+    //   console.log(response);
+    // });
+    // console.log("sending response...")
+    res.send(response);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
@@ -59,9 +73,28 @@ router.get("/countries", async (req, res) => {
 
 router.get("/pestles", async (req, res) => {
   try {
-    const results = await Bulletin.distinct("pestle");
-    const pestle = results.filter((item) => item);
-    res.send(pestle);
+    const data = await Bulletin.find({});
+    let i = 0;
+    let hashing = {};
+
+    let displayData = [];
+
+    // eslint-disable-next-line react/prop-types
+    data?.forEach(({ pestle }) => {
+      if (pestle) {
+        if (!hashing[pestle] && hashing[pestle] !== 0) {
+          hashing = { ...hashing, [pestle]: i };
+          displayData.push({ pestle, count: 1 });
+          i++;
+        } else {
+          displayData[hashing[pestle]].count += 1;
+        }
+      }
+    });
+
+    console.log(displayData);
+
+    res.send(displayData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
