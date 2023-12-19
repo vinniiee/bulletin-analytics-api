@@ -1,5 +1,6 @@
 const express = require("express");
 const Bulletin = require("../models/bulletin");
+const getCount = require("../utils/getCount");
 const router = new express.Router();
 
 router.post("/", async (req, res) => {
@@ -33,15 +34,6 @@ router.get("/topics", async (req, res) => {
       count = await Bulletin.count({ topic: topics[i] });
       response.push({ name: topics[i], count });
     }
-    // console.log(response);
-    //
-    //  topics.forEach(async (topic) => {
-    //   count = await Bulletin.count({ topic: topic });
-
-    //   response.push({ name: topic, count });
-    //   console.log(response);
-    // });
-    // console.log("sending response...")
     res.send(response);
   } catch (e) {
     console.log(e);
@@ -74,27 +66,9 @@ router.get("/countries", async (req, res) => {
 router.get("/pestles", async (req, res) => {
   try {
     const data = await Bulletin.find({});
-    let i = 0;
-    let hashing = {};
+    const formattedData = getCount("pestle", data);
 
-    let displayData = [];
-
-    // eslint-disable-next-line react/prop-types
-    data?.forEach(({ pestle }) => {
-      if (pestle) {
-        if (!hashing[pestle] && hashing[pestle] !== 0) {
-          hashing = { ...hashing, [pestle]: i };
-          displayData.push({ pestle, count: 1 });
-          i++;
-        } else {
-          displayData[hashing[pestle]].count += 1;
-        }
-      }
-    });
-
-    console.log(displayData);
-
-    res.send(displayData);
+    res.send(formattedData);
   } catch (e) {
     console.log(e);
     res.sendStatus(500).send();
