@@ -10,7 +10,7 @@
     if (requestedResource) {
       if (!hashing[requestedResource] && hashing[requestedResource] !== 0) {
         hashing = { ...hashing, [requestedResource]: i };
-        countData.push({ [requestedResource]: requestedResource, count: 1 });
+        countData.push({ name: requestedResource, count: 1 });
         i++;
       } else {
         countData[hashing[requestedResource]].count += 1;
