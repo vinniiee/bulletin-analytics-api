@@ -5,6 +5,7 @@ require('./db/mongoose')
 const cors = require('cors')
 const userRouter = require('./routers/user')
 const bulletinRouter = require('./routers/bulletin')
+const { mapRouter } = require('./routers/world-map')
 
 const app = express()
 
@@ -23,7 +24,7 @@ app.use(express.json())
 // })
 app.use("/bulletins",bulletinRouter)
 app.use(userRouter)
-
+app.use(mapRouter);
 app.use('*',(req,res)=>{
     res.sendStatus(200).send("Up and Running..");
 })
