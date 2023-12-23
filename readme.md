@@ -2,15 +2,13 @@
 
 Welcome to the Bulletin Analytics API repository! This API is designed to interact with a Mongoose database to fetch and manage bulletin data. Bulletins are pieces of information that can be retrieved, created, updated, and deleted through this API.
 
-Deployed Link :- https://bulletin-analytics-api.onrender.com/
+Deployed On :- [Render](https://bulletin-analytics-api.onrender.com/)
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Endpoints](#endpoints)
-  - [Example Requests](#example-requests)
-- [Configuration](#configuration)
+- [Endpoints](#endpoints)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -42,41 +40,47 @@ To get started with the Bulletin API, follow these steps:
 
 ### Endpoints
 
-- **POST /bulletins**:
-  Description: Create a new bulletin entry.
+- ######  POST /bulletins:
+     Create a new bulletin entry.
 
-- **GET /bulletins**:
-  Description: Retrieve all bulletins.
+- ######  GET /bulletins:
+     Retrieve all bulletins.
 
-- **GET /map**:
-    Description: Retrive features for world map 
+- ######  GET /map:
+     Retrive features for world map 
 
-- **GET /bulletins/topics**:
-  Description: Retrieve and count bulletins by topic.
+- ######  GET /bulletins/topics:
+     Retrieve and count bulletins by topic.
 
-- **GET /bulletins/regions**:
-  Description: Retrieve and count bulletins by region.
+- ######  GET /bulletins/regions:
+     Retrieve and count bulletins by region.
 
-- **GET /bulletins/countries*
-  Description: Retrieve and count bulletins by country.
+- ######  GET /bulletins/countries:
+     Retrieve and count bulletins by country.
 
-- **GET /bulletins/pestles**:
-  Description: Retrieve and count bulletins by pestle.
+- ######  GET /bulletins/pestles:
+     Retrieve and count bulletins by pestle.
 
-- **GET /bulletins/sectors**:
-  Description: Retrieve and count bulletins by sector.
+- ######  GET /bulletins/sectors:
+     Retrieve and count bulletins by sector.
 
-- **GET /bulletins/sources**:
-  Description: Retrieve and count bulletins by source.
+- ######  GET /bulletins/sources:
+     Retrieve and count bulletins by source.
 
-- **GET /bulletins/chronic**:
-  Description: Group bulletins by day.
+- ######  GET /bulletins/chronic:
+     Group bulletins by day.
 
-- **GET /bulletins/:id**:
-  Description: Retrieve a specific bulletin by ID.
+- ######  GET /bulletins/:id:
+     Retrieve a specific bulletin by ID.
 
-- **PATCH /bulletins/:id**:
-  Description: Update a specific bulletin by ID.
+- ######  PATCH /bulletins/:id:
+     Update a specific bulletin by ID.
 
-- **DELETE /bulletins/:id**:
-  Description: Delete a bulletin by ID.
+- ######  DELETE /bulletins/:id:
+     Delete a bulletin by ID.
+
+## Contributing
+If you would like to contribute to the project, please follow the guidelines in [CONTRIBUTING.md].
+
+## License
+This project is licensed under the [LICENSE] - see the [LICENSE.md] file for details.
