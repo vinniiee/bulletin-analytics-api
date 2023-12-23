@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/map", async (req, res) => {
   const map = fs.readFileSync(
-    path.join(__dirname, "..", "data", "world-topojson.json")
+    path.join(__dirname, "..", "data", "world-geo.json")
   );
 
   res.send(map);
